@@ -1,0 +1,7 @@
+{
+  "name": "some-lib",
+  "main": "index.ts",
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
