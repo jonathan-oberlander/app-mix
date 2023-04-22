@@ -1,21 +1,37 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useOutletContext } from "react-router-dom";
 import "./App.css";
+import { useState } from "react";
+import { useCount } from "./store";
 
-const ctx = { value: "I am declared in the Host app" };
+export type ContextType = {
+  state: string;
+  setState?: React.Dispatch<React.SetStateAction<{ user: string }>>;
+};
+
+export const useHostContextValue = () => useOutletContext<ContextType>();
 
 function App() {
+  const [state, setState] = useState<ContextType>();
+  const [count] = useCount();
+
   return (
     <>
       <div>
         <h1>Host Application</h1>
-        <p>Lazy loads + provides state & styles to Apps A and B</p>
+        <p>
+          Owns the main routing tree and lazy loads the apps A and B (code
+          splitting)
+          <br />
+          It also provides state & common styles
+        </p>
         <nav>
-          <Link to="a">APP_A</Link> <Link to="b">APP_B</Link>
+          <Link to="a">Application A</Link> <Link to="b">Application B</Link>
         </nav>
+        {count}
         <hr />
       </div>
       <div>
-        <Outlet context={ctx} />
+        <Outlet context={{ state, setState }} />
       </div>
     </>
   );

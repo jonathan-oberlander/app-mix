@@ -11,4 +11,7 @@ const mangas = atom(
   (get, _, _arg: string) => get(mangaAtom)[_arg]
 );
 
+const countAtom = atom(0);
+
+export const useCount = () => useAtom(countAtom);
 export const useMangas = () => useAtom(mangas);

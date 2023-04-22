@@ -1,7 +1,8 @@
 import { Outlet, Link, useRoutes, useOutletContext } from "react-router-dom";
+import { type ContextType } from "../../host/src/App";
 
 function App() {
-  const ctx = useOutletContext<{ value: string }>();
+  const ctx = useOutletContext<ContextType>();
 
   const element = useRoutes([
     {
@@ -10,21 +11,30 @@ function App() {
       children: [
         {
           path: "messages",
-          element: <>MESSAGES</>,
+          element: (
+            <>
+              <p>Message passed from Host Context</p>
+              <pre>{JSON.stringify(ctx.state)}</pre>
+            </>
+          ),
         },
-        { path: "tasks", element: <>TASKS</> },
+        {
+          path: "tasks",
+          element: <p>display the task route</p>,
+        },
       ],
     },
   ]);
 
   return (
     <div>
-      <h3>APP A</h3>
-      <p>Context passed from Host Outlet:</p>
-      <pre>{JSON.stringify(ctx)}</pre>
+      <h2>APP A</h2>
+      <p>
+        The application renders its own route and receives context from Host
+      </p>
       <nav>
-        <h4>App A routes</h4>
-        <Link to="messages">Messages</Link> <Link to="tasks">Tasks</Link>
+        <Link to="messages">Messages from App B</Link> <br />
+        <Link to="tasks">Tasks</Link>
       </nav>
       {element}
     </div>

@@ -1,0 +1,21 @@
+.styled {
+  color: blueviolet;
+}
+
+.app_b {
+  display: flex;
+  gap: 10px;
+  flex-basis: 0;
+}
+
+.app_b > div {
+  flex-basis: 0;
+  flex-grow: 1;
+  border: 1px solid blueviolet;
+  border-radius: 2%;
+  padding: 10px;
+}
+
+.app_b > div input {
+  margin-top: 15px;
+}
