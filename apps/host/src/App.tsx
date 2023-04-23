@@ -1,7 +1,7 @@
 import { Link, Outlet, useOutletContext } from "react-router-dom";
-import "./App.css";
 import { useState } from "react";
-import { useCount } from "./store";
+import { useCount } from "atom-store";
+import "./App.css";
 
 export type ContextType = {
   state: string;

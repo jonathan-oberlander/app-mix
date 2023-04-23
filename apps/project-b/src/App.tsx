@@ -1,4 +1,4 @@
-import { useCount, useMangas } from "../../host/src/store";
+import { useCount, useMangas } from "atom-store";
 import { useHostContextValue } from "../../host/src/App";
 import "./styles.css";
 
@@ -11,9 +11,8 @@ function App() {
     <div>
       <h2>APP B</h2>
       <p className="styled">
-        You can use an atomic storage libraie like Jotai to share state from{" "}
-        <b>Host</b>
-        or use the Outlet Context:
+        State sharing beween apps and host with outlet <b>Context</b> and{" "}
+        <b>Jotai</b>
       </p>
       <section className="app_b">
         <div>

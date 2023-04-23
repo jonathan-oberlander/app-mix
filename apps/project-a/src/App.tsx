@@ -1,6 +1,5 @@
 import { Outlet, Link, useRoutes, useOutletContext } from "react-router-dom";
 import { type ContextType } from "../../host/src/App";
-import { v } from "some-lib";
 
 function App() {
   const ctx = useOutletContext<ContextType>();
@@ -29,7 +28,7 @@ function App() {
 
   return (
     <div>
-      <h2>APP A {v()}</h2>
+      <h2>APP A</h2>
       <p>
         The application renders its own route and receives context from Host
       </p>

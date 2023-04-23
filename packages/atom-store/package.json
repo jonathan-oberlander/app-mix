@@ -1,6 +1,9 @@
 {
-  "name": "some-lib",
+  "name": "atom-store",
   "main": "index.ts",
+  "dependencies": {
+    "jotai": "^2.0.4"
+  },
   "devDependencies": {
     "typescript": "^5.0.2"
   }
